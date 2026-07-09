@@ -138,6 +138,7 @@ rsync -avz -e "ssh -p <端口>" \
 |------|------|------------------|
 | `external/lama` 等 | 体积大、自带 `.git` | `git clone` |
 | `*.pkl` / `big-lama.pt` | 数百 MB 权重 | 脚本下载或首次运行自动下 |
+| `*.pdf` | 论文 PDF，体积大 | 仅保留在本机，不进 Git |
 | `results/` | 实验输出 | `rsync` 拉回 |
 | `.venv` | 环境 | `uv sync` |
 
