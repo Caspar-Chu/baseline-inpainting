@@ -1,0 +1,5 @@
+# Clone third-party baseline repos here:
+#   git clone https://github.com/advimman/lama external/lama
+#   git clone https://github.com/fenglinglwb/MAT external/mat
+#   git clone https://github.com/andreas128/RePaint external/repaint
+#   git clone https://github.com/BGUCompSci/DDRM external/ddrm

@@ -1,0 +1,74 @@
+# Experiment definitions aligned with paper Section 4.3–4.5.
+# Paths are relative to project root unless absolute.
+
+data_root: baseline增补计划/所需数据素材
+output_root: results
+mask_cache: data/masks
+
+experiments:
+  random_pixel_masks:
+    section: "4.3.1"
+    description: Random pixel masks at 30%, 50%, 70% missing rates
+    image: random-mask素材/leida.png
+    mask_type: random
+    missing_ratios: [0.3, 0.5, 0.7]
+    num_trials: 20
+    metrics: [psnr, ssim, lpips]
+
+  block_masks:
+    section: "4.3.2"
+    description: Block masks on 300x300 images
+    mask_type: block
+    target_size: [300, 300]
+    cases:
+      - name: image-2
+        image: block-mask素材/image-2.png
+        mask: block-mask素材/mask1.png
+      - name: image-4
+        image: block-mask素材/image-4.png
+        mask: block-mask素材/mask2.png
+    metrics: [psnr, ssim, lpips]
+
+  missing_patterns:
+    section: "4.4"
+    description: Compare random vs block at 30% on 900x900 image
+    image: random-mask素材/leida.png
+    target_size: [900, 900]
+    missing_ratio: 0.3
+    patterns:
+      - name: random
+        mask_type: random
+        num_trials: 1
+        seed: 42
+      - name: block
+        mask_type: block
+        mask: block-mask素材/mask1.png
+    metrics: [psnr, ssim, lpips, time_sec]
+
+  scenes_resolutions:
+    section: "4.5"
+    description: Different SAR scenes at native resolution
+    mask_type: random
+    missing_ratio: 0.3
+    seed: 42
+    cases:
+      - name: roundabout
+        image: scene素材/P0101.png
+      - name: harbor
+        image: scene素材/P0410.png
+      - name: parking_lot
+        image: scene素材/P1196.png
+    metrics: [psnr, ssim, lpips, time_sec]
+
+baselines:
+  - identity
+  - lama
+  - mat
+  - repaint
+  - ddrm
+
+external_repos:
+  lama: external/lama
+  mat: external/mat
+  repaint: external/repaint
+  ddrm: external/ddrm

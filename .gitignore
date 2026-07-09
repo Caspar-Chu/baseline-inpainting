@@ -1,0 +1,35 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# macOS / misc
+.DS_Store
+test.py
+
+# Experiment outputs (keep directory structure)
+results/**/*
+!results/.gitkeep
+data/masks/**/*
+!data/.gitkeep
+
+# Large archives and papers (keep locally, do not push)
+baseline增补计划.zip
+*.pdf
+
+# Third-party baseline repos — clone separately on each machine
+external/lama/
+external/mat/
+external/repaint/
+external/ddrm/
+!external/.gitkeep
+
+# Model weights — download on server (see docs/git_sync_guide.md)
+*.pkl
+*.pt
