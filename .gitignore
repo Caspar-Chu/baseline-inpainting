@@ -30,6 +30,9 @@ external/repaint/
 external/ddrm/
 !external/.gitkeep
 
-# Model weights — download on server (see docs/git_sync_guide.md)
+# Large archives — keep locally, do not push
+results.zip
+
+# Model weights — download on server (see docs/git_sync.md)
 *.pkl
 *.pt

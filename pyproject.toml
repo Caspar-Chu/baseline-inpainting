@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "Baseline augmentation experiment suite for remote sensing inpainting"
 requires-python = ">=3.12"
 dependencies = [
+    "blobfile>=3.2.0",
     "easydict>=1.13",
     "imageio-ffmpeg>=0.6.0",
     "lpips>=0.1.4",
